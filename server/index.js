@@ -1,17 +1,29 @@
 // 这里的node代码会用babel处理
 import React from 'react'
 import { renderToString } from 'react-dom/server'
+import {StaticRouter} from 'react-router-dom'
 import express from 'express'
 import App from '../src/App'
+
+import {Provider} from 'react-redux'
+import store from '../src/store/store'
+
 
 const app = express()
 // 设置静态资源目录
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-  // const Page = <App></App>
+// 接受所有 路由
+app.get('*', (req, res) => {
   // 把react组件，解析成html
-  const content = renderToString(App)
+  const content = renderToString(
+    <Provider store={store}>
+      <StaticRouter location={req.url}>
+        {App}
+      </StaticRouter>
+    </Provider>
+  )
+
   res.send(`
     <html>
       <head>
