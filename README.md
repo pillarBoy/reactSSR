@@ -67,3 +67,7 @@ react ssr practice
 
 - server端区分页面请求和接口请求，做不同处理
 - 对axios做默认配置
+
+
+问题：
+- 如果有要请求第三方接口的特殊接口，并且要在loadData执行，怎么处理？
