@@ -66,3 +66,4 @@ react ssr practice
 所有的接口请求，都发到server端，在server准发到api接口，然后返回给client端
 
 - server端区分页面请求和接口请求，做不同处理
+- 对axios做默认配置
