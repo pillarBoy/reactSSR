@@ -1,32 +1,33 @@
 import axios from 'axios'
 import { dispatch } from 'rxjs/internal/observable/pairs'
 
-const GET_LIST = 'GET_LIST'
+const GET_USERINFO = 'GET_USERINFO'
 
-const changeList = list => ({
-    type: GET_LIST,
-    list
+const changeUserinfo = data => ({
+    type: GET_USERINFO,
+    data 
 })
 
-export const getIndexList = () => {
+export const getUserInfo = () => {
     return (dispatch, getState, axiosInstance) => {
-        return axios.get('/api/course/list')
+        return axios.get('/api/user/info')
             .then(res => {
-                let {list} = res.data
-                dispatch(changeList(list))
+                let {data} = res.data
+                dispatch(changeUserinfo(data))
             })
     }
 }
 
 const defaultState = {
-    list: []
+  userinfo: {}
 }
 
 export default (state=defaultState, action) => {
     switch (action.type) {
-        case GET_LIST: 
+        case GET_USERINFO: 
             return {
-                ...state, list: action.list
+                ...state, 
+                userinfo: action.data
             }
         default: 
             return state

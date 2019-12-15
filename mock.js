@@ -19,6 +19,20 @@ app.get('/api/course/list',(req,res)=>{
     })
 })
 
+app.get('/api/user/info1',(req,res)=>{
+
+    res.header('Access-Control-Allow-Origin','*')
+    res.header('Access-Control-Allow-Methods','GET,POST,PUT,DELETE')
+    res.header('Content-Type',"application/json;charset=utf-8")
+    res.json({
+        code:0,
+        data: {
+            name: '开课吧',
+            best: '大圣'
+        }
+    })
+})
+
 
 app.listen(9090,()=>{
     console.log('接口启动')
