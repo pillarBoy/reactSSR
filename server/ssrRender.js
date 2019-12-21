@@ -37,7 +37,9 @@ function ssrRender(req, res) {
   })
 
   Promise.all(promises).then(() => {
-    const context = {}
+    const context = {
+      css: []
+    }
 
     // 把react组件，解析成html
     const content = renderToString(
@@ -57,11 +59,13 @@ function ssrRender(req, res) {
       res.redirect(301, context.url)
     }
 
+    const css = context.css.join('\n')
     res.send(`
       <html>
         <head>
           <meta charset="utf-8"/>
           <title>react ssr</title>
+          <style>${css}</style>
         </head>
         <body>
           <div id="root">${content}</div>
@@ -71,6 +75,7 @@ function ssrRender(req, res) {
       </html>
     `)
   }).catch((err) => {
+    console.log(err)
     res.send('api error')
   })
 }

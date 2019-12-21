@@ -13,7 +13,7 @@
 - 服务端判断`context.statuscode`存在，就把server端的`response.status = context.statuscode`
 
 
-# csr 
+# csr （降级渲染）在流量大的情况(做活动那些情况下)，放弃ssr,使用客户端渲染
 - 服务端根据某中约定端条件，切换到CSR渲染函数，输出的就是SPA的入口html
 - 客户端增加入口文件输入
   1. `webpack.client.js`增加`html-webpack-plugin`plugin,输出`index.csr.html`文件到public
@@ -21,3 +21,25 @@
      csr使用reactDom.render方法，ssr使用reactDom.hydrate(注水方式
   
 
+# css细节优化
+总结：
+  - webpack把css输出为module
+  - 组件内部，把当前组件需要的css,传到props.staticContext.css
+  - 服务端(server)，把context.css传到html模版head>style里
+
+优化：
+创建一个高级组件withStyles,统一处理styles
+ 
+```js
+  import React from 'react'
+
+  export default function withStyles(Comp, styles) {
+    return (props) => {
+      if (props.staticContext) {
+        props.staticContext.css.push(styles._getCss())
+      }
+      return <Comp {...props}></Comp>
+    }
+  }
+```
+> 注意：styles._getCss方法，只有服务端有，客户端没有

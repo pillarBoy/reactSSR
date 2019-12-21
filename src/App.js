@@ -6,7 +6,7 @@ import About from './container/About'
 import User from './container/User'
 import Notfound from './container/Notfound'
 
-import './app.css'
+// import './app.css'
 
 
 // export default (
