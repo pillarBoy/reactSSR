@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import routes from '../src/App'
 
@@ -13,12 +13,19 @@ const Page = (
 	<Provider store={getClientStore()}>
 		<BrowserRouter>
 			<Header></Header>
-			{
-				routes.map(route => <Route {...route}></Route>)
-			}
+			<Switch>
+				{
+					routes.map(route => <Route {...route}></Route>)
+				}
+			</Switch>
 		</BrowserRouter>
 	</Provider>
 )
 
-// 注水 客户端入口
-ReactDom.hydrate(Page, document.getElementById('root'))
+if (window.__context) {
+
+	// 注水 客户端入口
+	ReactDom.hydrate(Page, document.getElementById('root'))
+} else {
+	ReactDom.render(Page, document.getElementById('root'))
+}

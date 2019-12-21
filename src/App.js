@@ -4,6 +4,9 @@ import {Route} from 'react-router-dom'
 import Index from './container/Index'
 import About from './container/About'
 import User from './container/User'
+import Notfound from './container/Notfound'
+
+import './app.css'
 
 
 // export default (
@@ -20,7 +23,7 @@ export default [
     path: '/',
     component: Index,
     // loadData: () => ...
-    // exact: true,
+    exact: true,
     key: 'index'
   },
   {
@@ -34,5 +37,9 @@ export default [
     component: User,
     exact: true,
     key: 'user'
+  },
+  {
+    component: Notfound,
+    key: 'notfound'
   }
 ]

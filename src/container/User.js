@@ -2,8 +2,10 @@ import React from 'react';
 import  {connect} from 'react-redux'
 
 import {getUserInfo} from '../store/User'
+import {Redirect} from 'react-router-dom'
 
 const User = (props) => {
+  // return <Redirect to="/"></Redirect>
   return <div>
     <h1>hi {props.userinfo.name},your best man is {props.userinfo.best}</h1>
   </div>

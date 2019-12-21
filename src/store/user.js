@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 const GET_USERINFO = 'GET_USERINFO'
 
 const changeUserinfo = data => ({
@@ -8,8 +6,8 @@ const changeUserinfo = data => ({
 })
 
 export const getUserInfo = () => {
-	return (dispatch, getState, axiosInstance) => {
-		return axios.get('/api/user/info')
+	return (dispatch, getState, $axios) => {
+		return $axios.get('/api/user/info')
 			.then(res => {
 				let { data } = res.data
 				dispatch(changeUserinfo(data))

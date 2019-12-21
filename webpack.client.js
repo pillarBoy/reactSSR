@@ -1,4 +1,7 @@
 const path = require('path')
+const htmlWebpackPlugin = require('html-webpack-plugin')
+
+
 // 服务端webpack
 module.exports = {
   mode: 'development',
@@ -8,6 +11,13 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public')
   },
+  plugins: [
+    new htmlWebpackPlugin({
+      filename: 'index.csr.html',
+      template: path.resolve(__dirname, './src/index.csr.html'),
+      inject: true
+    })
+  ],
   module: {
     rules: [
       {
@@ -18,6 +28,10 @@ module.exports = {
         options: {
           presets: ['@babel/preset-react', ['@babel/preset-env']]
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   }

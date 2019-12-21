@@ -1,5 +1,6 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
+
 // 服务端webpack
 module.exports = {
   target: 'node',
@@ -10,6 +11,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build')
   },
+ 
   module: {
     rules: [
       {
@@ -20,6 +22,10 @@ module.exports = {
         options: {
           presets: ['@babel/preset-react', ['@babel/preset-env']]
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['isomorphic-style-loader', 'css-loader']
       }
     ]
   }

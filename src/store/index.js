@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { dispatch } from 'rxjs/internal/observable/pairs'
 
 const GET_LIST = 'GET_LIST'
@@ -9,8 +8,8 @@ const changeList = list => ({
 })
 
 export const getIndexList = () => {
-    return (dispatch, getState, axiosInstance) => {
-        return axios.get('/api/course/list')
+    return (dispatch, getState, $axios) => {
+        return $axios.get('/api/course/list')
             .then(res => {
                 let {list} = res.data
                 dispatch(changeList(list))

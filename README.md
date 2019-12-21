@@ -68,6 +68,13 @@ react ssr practice
 - server端区分页面请求和接口请求，做不同处理
 - 对axios做默认配置
 
+作业总结：
+axios 要区分客户端和服务端，两个做不同的配置,
+server端不需要代理，直接请求，
+client端所有的接口请求，转到服务端再转发，
+client端的请求，再server端增加一个`http-proxy-middleware`代理。
+
 
 问题：
 - 如果有要请求第三方接口的特殊接口，并且要在loadData执行，怎么处理？
+老师说，可以专门添加一个.get(or post)来专门处理
