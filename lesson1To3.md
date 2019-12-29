@@ -73,7 +73,8 @@ client端的请求，再server端增加一个`http-proxy-middleware`代理。
 
 
 问题：
-- 如果有要请求第三方接口的特殊接口，并且要在loadData执行，怎么处理？
+- 如果有要请求第三方接口的特殊接口，并且要在loadData执行，怎么处理？  
+
 老师说，可以专门添加一个.get(or post)来专门处理
 
 
