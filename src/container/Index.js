@@ -24,7 +24,6 @@ function Index(props) {
 		<h1 className={styles.title}>hi {props.title} !! {count}</h1>
 		<button onClick={() => setCount(count + 1)}>+1</button>
 		<hr />
-		<Link to='/about'>about</Link>
 		<ul>
 			{
 				props.list.map(item => {
