@@ -1,0 +1,55 @@
+.github-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: 15px;
+}
+
+.git-box {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  height: 164px;
+  padding: 24px 20px;
+  background-color: white;
+  border-radius: 2px;
+  color: #333;
+}
+.git-box:hover {
+  color: #333;
+}
+
+.git-box .git-box-title {
+  margin-bottom: 8px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0366d6;
+}
+.git-box-content {
+  height: 60px;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.git-box-info {
+  margin-top: 15px;
+  display: flex;
+}
+.git-box-info>span {
+  margin-right: 15px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.git-box-info>span:first-child img {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+}
+.git-box-info>span:nth-child(2) img {
+  display: inline-block;
+  width: 9px;
+  height: 13px;
+}
+

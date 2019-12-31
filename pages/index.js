@@ -1,27 +1,37 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import TopNav from '../components/TopNav'
+import 'antd/dist/antd.css';
+
 import './index.css'
-import {getIndexList} from '../store/index'
+import TopNav from '../components/TopNav'
+import GoldList from '../components/GoldList'
+import Github from '../components/Github'
+
+import {getGoldList, getGithubList} from '../store/index'
 
 
-const Index = (props) => {
-  console.log(props)
+class Index extends Component {
+  constructor(props) {
+    super(props)
+  }
 
-  return (<div>
-    <TopNav></TopNav>
-    <div className="content">
-      <div className="juejin-list">
-        
+  render() {
+    
+
+    return (<div>
+   
+      <TopNav></TopNav>
+      <div className="content">
+        <GoldList></GoldList>
+        <Github></Github>
       </div>
-      <div className="github-list"></div>
-    </div>
-  </div>)
+    </div>)
+  } 
 }
 
 Index.getInitialProps = ({store}) => {
-  let res = store.dispatch(getIndexList())
-  return res
+  store.dispatch(getGoldList(0))
+  return
 }
 
-export default connect(state => state)(Index)
+export default connect(state => state, { getGoldList } )(Index)

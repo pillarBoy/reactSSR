@@ -1,15 +1,18 @@
 
-.content {
-  display: flex;
-
-  padding: 21.6px 14px 0 21.6px;
-  background-color: #eceff1;
+body {
+  font-family: PingFang SC,-apple-system,Arial,Microsoft YaHei,Microsoft JhengHei,Helvetica Neue,sans-serif;
 }
 
-.juejin-list {
-
+.content {
+  display: flex;
+  padding: 21.6px 14px 20px 21.6px;
+  background-color: #eceff1;
+  height: calc(100vh - 74px);
 }
 
 .github-list {
   
 }
+
+
+

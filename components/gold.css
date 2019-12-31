@@ -1,0 +1,128 @@
+.gold-list {
+  display: flex;
+  flex-direction: column;
+  width: 33.3%;
+  height: 100%;
+}
+
+.logo-start {
+  display: inline-block;
+  margin-right: 12px;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  color: #ffffff;
+  background-color: #007fff;
+  border-radius: 2px;
+  text-align: center;
+}
+.logo-title {
+  color: rgb(4, 74, 171);
+  font-size: 16px;
+  margin-right: 12px;
+}
+
+.tab {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 5px 15px 5px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 42px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.tab-selector {
+  box-sizing: border-box;
+  margin-right: 10px;
+  display: inline-block;
+  width: 96px;
+  height: 30px;
+  background-color: #f8f9fb;
+  color: #646c7b;
+  font-size: 12px;
+  line-height: 30px;
+  padding: 0 15px;
+}
+
+.hot-type {
+  margin: 0 2px;
+  display: inline-block;
+  width: 43px;
+  height: 42px;
+  text-align: center;
+  line-height: 42px;
+  color: #646c7b;
+  font-size: 16px;
+  opacity: .3;
+}
+.hot-type:hover {
+  cursor: pointer;
+}
+.hot-type-act {
+  opacity: .8;
+}
+
+
+
+.list-contain {
+  flex: 1;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+
+.list-contain .list-item {
+  padding: 5px 15px 5px 5px;
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 2px;
+  color: #333;
+  font-weight: 300;
+  border: none;
+  margin-bottom: 10px;
+}
+.list-item:hover {
+  cursor: pointer;
+}
+.list-item-content {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+.list-content-title {
+  flex: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.list-start {
+  display: inline-block;
+  width: 34px;
+  height: 44px;
+  background-color: #007fff;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 44px;
+  text-align: center;
+  color: white;
+  transition: all .15s;
+}
+.list-uname {
+  margin-left: 12px;
+}
+
+.list-item:hover {
+  color: #333;
+}
+.list-item:hover .list-start {
+  color: #007fff;
+  background-color: #e8f1ff;
+  transition: all .15s;
+}
